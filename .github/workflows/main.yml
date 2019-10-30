@@ -19,7 +19,7 @@ jobs:
             const REGEX_COUNT = /<h2>(\d+)<\/h2>/;
             const REGEX_REASON = /<span class="reason">([^<]*)<\/span>/;
             const REGEX_AUTHOR = /<a href="https:\/\/github.com\/([^"]*)">@\1<\/a>/;
-            const REGEX_ISSUE = /href="https:\/\/github.com\/jdhartley\/howmantimeshasdavebeenfired.com\/(issues\/\d+)"/;
+            const REGEX_ISSUE = /href="https:\/\/github.com\/jdhartley\/howmanytimeshasdavebeenfired.com\/(issues\/\d+)"/;
 
             // GATHER OLD DATA
             const files = await github.repos.getContents({ ...context.repo, path });
@@ -40,7 +40,7 @@ jobs:
             // CREATE COMMIT
             const commitMessage = `Firing @dskuza for ${reason}
 
-            Fixes #${context.issue.number}
+            Fixes #${context.issue.number}. See it live at https://howmanytimeshasdavebeenfired.com/
 
             ${'🔥'.repeat(newCount)}`;
 
